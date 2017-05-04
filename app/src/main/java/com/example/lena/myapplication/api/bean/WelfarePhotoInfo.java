@@ -2,10 +2,6 @@ package com.example.lena.myapplication.api.bean;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by long on 2016/10/10.
- */
-
 public class WelfarePhotoInfo {
 
     /**
