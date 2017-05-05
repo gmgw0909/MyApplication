@@ -8,8 +8,7 @@
     <com.example.lena.myapplication.widget.RecyclerViewWithFooter.RecyclerViewWithFooter
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="10dp" />
+        android:layout_height="match_parent" />
 
 
 </android.support.v4.widget.SwipeRefreshLayout>

@@ -16,7 +16,7 @@ import com.example.lena.myapplication.R;
 
 public class RecyclerViewDivider extends RecyclerView.ItemDecoration {
     private Drawable mDivider;
-    private int mDividerHeight = 20;//分割线高度，默认为px
+    private int mDividerHeight = 0;//分割线高度，默认为px
     private int mOrientation;//列表的方向：LinearLayoutManager.VERTICAL或LinearLayoutManager.HORIZONTAL
 //    private static final int[] ATTRS = new int[]{android.R.attr.listDivider};
 
