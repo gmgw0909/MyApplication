@@ -39,7 +39,7 @@ class PhotoRecyclerAdapter extends CommonRecyclerAdapter<WelfarePhotoInfo> imple
             holder.setTextViewText(R.id.category_item_desc, resultsBean.getDesc() == null ? "unknown" : resultsBean.getDesc());
             holder.setTextViewText(R.id.category_item_author, resultsBean.getWho() == null ? "unknown" : resultsBean.getWho());
             holder.setTextViewText(R.id.category_item_time, TimeUtil.dateFormat(resultsBean.getPublishedAt()));
-            holder.setTextViewText(R.id.category_item_src, resultsBean.getSource() == null ? "unknown" : resultsBean.getSource());
+//            holder.setTextViewText(R.id.category_item_src, resultsBean.getSource() == null ? "unknown" : resultsBean.getSource());
             holder.setOnClickListener(this, R.id.category_item_layout);
         }
     }

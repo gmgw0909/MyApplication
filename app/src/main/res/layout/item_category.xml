@@ -4,11 +4,13 @@
     android:id="@+id/category_item_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
     android:background="?attr/selectableItemBackground"
     android:orientation="vertical"
     android:padding="5dp"
     app:cardCornerRadius="5dp"
-    app:cardElevation="2dp"
+    app:cardElevation="3dp"
     app:contentPadding="5dp">
 
     <LinearLayout
@@ -59,15 +61,15 @@
                     android:textColor="@color/category_text2"
                     android:textSize="13sp" />
 
-                <TextView
-                    android:id="@+id/category_item_src"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="Web"
-                    android:textAllCaps="false"
-                    android:textColor="@color/category_text2"
-                    android:textSize="13sp" />
+                <!--<TextView-->
+                <!--android:id="@+id/category_item_src"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--android:text="Web"-->
+                <!--android:textAllCaps="false"-->
+                <!--android:textColor="@color/category_text2"-->
+                <!--android:textSize="13sp" />-->
 
 
                 <TextView
