@@ -6,12 +6,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Author: nanchen
- * Email: liushilin520@foxmail.com
- * Date: 2017-04-14  10:48
- */
-
 public class TimeUtil {
 
     public static String dateFormat(String timestamp) {

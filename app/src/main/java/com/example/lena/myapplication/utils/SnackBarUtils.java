@@ -5,7 +5,6 @@ import android.support.design.widget.Snackbar;
 import android.view.View;
 
 /**
- * Created by long on 2016/12/29.
  * SnackBar 工具
  */
 public final class SnackBarUtils {
