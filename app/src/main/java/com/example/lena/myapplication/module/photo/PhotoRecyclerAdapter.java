@@ -1,6 +1,8 @@
 package com.example.lena.myapplication.module.photo;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
@@ -27,9 +29,9 @@ class PhotoRecyclerAdapter extends CommonRecyclerAdapter<WelfarePhotoInfo> imple
     public void convert(CommonRecyclerHolder holder, WelfarePhotoInfo resultsBean) {
         if (resultsBean != null) {
             ImageView imageView = holder.getView(R.id.category_item_img);
-            if (!TextUtils.isEmpty(resultsBean.getUrl())) {
+            if (resultsBean.getImages() != null && !TextUtils.isEmpty(resultsBean.getImages().get(0))) {
                 Glide.with(mContext)
-                        .load(resultsBean.getUrl())
+                        .load(resultsBean.getImages().get(0) + "?imageView2/0/w/100")//节省流量
                         .placeholder(R.mipmap.image_default)
                         .error(R.mipmap.image_default)
                         .into(imageView);
@@ -39,13 +41,12 @@ class PhotoRecyclerAdapter extends CommonRecyclerAdapter<WelfarePhotoInfo> imple
             holder.setTextViewText(R.id.category_item_desc, resultsBean.getDesc() == null ? "unknown" : resultsBean.getDesc());
             holder.setTextViewText(R.id.category_item_author, resultsBean.getWho() == null ? "unknown" : resultsBean.getWho());
             holder.setTextViewText(R.id.category_item_time, TimeUtil.dateFormat(resultsBean.getPublishedAt()));
-//            holder.setTextViewText(R.id.category_item_src, resultsBean.getSource() == null ? "unknown" : resultsBean.getSource());
             holder.setOnClickListener(this, R.id.category_item_layout);
         }
     }
 
     @Override
     public void onClick(View v, int position, CommonRecyclerHolder holder) {
-
+        mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(mData.get(position).getUrl())));
     }
 }

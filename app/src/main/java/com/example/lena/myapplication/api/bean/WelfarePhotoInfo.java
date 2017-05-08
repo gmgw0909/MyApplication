@@ -2,6 +2,8 @@ package com.example.lena.myapplication.api.bean;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class WelfarePhotoInfo {
 
     /**
@@ -24,6 +26,7 @@ public class WelfarePhotoInfo {
     private String type;
     private String url;
     private boolean used;
+    private List<String> images;
     private String who;
 
     public String getId() {
@@ -96,5 +99,13 @@ public class WelfarePhotoInfo {
 
     public void setWho(String who) {
         this.who = who;
+    }
+
+    public List<String> getImages() {
+        return images;
+    }
+
+    public void setImages(List<String> images) {
+        this.images = images;
     }
 }
