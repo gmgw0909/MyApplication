@@ -77,7 +77,7 @@ public class PhotosListFragment extends BaseFragment implements PhotoContract.IP
     @Override
     public void getDataFail(String failMessage) {
         if (getUserVisibleHint()) {
-            SnackBarUtils.showSnackBar(this.getActivity(), failMessage, false);
+            SnackBarUtils.ShowNormal(getActivity(), failMessage);
         }
     }
 

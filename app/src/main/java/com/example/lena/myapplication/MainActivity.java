@@ -6,7 +6,6 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.lena.myapplication.base.BaseActivity;
 import com.example.lena.myapplication.module.photo.PhotosMainFragment;
@@ -45,7 +44,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         } else if (item.getItemId() == R.id.nav_videos) {
             replaceFragment(R.id.fl_container, new VideosMainFragment(), Constants.VIDEOS);
         } else if (item.getItemId() == R.id.nav_setting) {
-            SnackBarUtils.showSnackBar(this, Constants.SETTING + " checkableBehavior=\"none\"", false);
+            item.setChecked(false);
+            SnackBarUtils.ShowNormal(this, "设置");
         }
         return false;
     }
@@ -78,7 +78,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     private void exitApp() {
         if (System.currentTimeMillis() - mExitTime > 2000) {
-            Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            SnackBarUtils.ShowNormal(this, "再按一次退出程序");
             mExitTime = System.currentTimeMillis();
         } else {
             finish();
