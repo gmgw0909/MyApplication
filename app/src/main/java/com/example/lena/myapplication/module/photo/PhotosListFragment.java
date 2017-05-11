@@ -24,15 +24,15 @@ public class PhotosListFragment extends BaseFragment implements PhotoContract.IP
     @Bind(R.id.swipe_refresh_layout)
     SwipeRefreshLayout mSwipeRefreshLayout;
 
-    private String categoryName;
+    private String tabTitleName;
     private PhotoRecyclerAdapter mAdapter;
     private PhotoContract.IPhotoPresenter iPhotoPresenter;
     public static final String CATEGORY_NAME = "CATEGORY_NAME";
 
-    public static PhotosListFragment newInstance(String mCategoryName) {
+    public static PhotosListFragment newInstance(String tabTitleName) {
         PhotosListFragment photosListFragment = new PhotosListFragment();
         Bundle bundle = new Bundle();
-        bundle.putString(CATEGORY_NAME, mCategoryName);
+        bundle.putString(CATEGORY_NAME, tabTitleName);
         photosListFragment.setArguments(bundle);
         return photosListFragment;
     }
@@ -44,8 +44,8 @@ public class PhotosListFragment extends BaseFragment implements PhotoContract.IP
 
     @Override
     protected void initViews() {
-        iPhotoPresenter = new PhotoPresenter(this);
-        categoryName = getArguments().getString(CATEGORY_NAME);
+        tabTitleName = getArguments().getString(CATEGORY_NAME);
+        iPhotoPresenter = new PhotoPresenter(this, tabTitleName);
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mAdapter = new PhotoRecyclerAdapter(getActivity());
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -104,11 +104,6 @@ public class PhotosListFragment extends BaseFragment implements PhotoContract.IP
     @Override
     public void setLoading() {
         mRecyclerView.setLoading();
-    }
-
-    @Override
-    public String getCategoryName() {
-        return categoryName;
     }
 
     @Override

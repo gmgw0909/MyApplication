@@ -25,13 +25,13 @@ public interface PhotoContract {
 
         void setLoading();
 
-        String getCategoryName();
-
         void setNoMore();
     }
 
     interface IPhotoPresenter extends BasePresenter {
 
         void getDataList(boolean isRefresh);
+
+        String getTabTitleName();
     }
 }

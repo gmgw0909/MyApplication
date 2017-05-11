@@ -35,8 +35,16 @@ class PhotoRecyclerAdapter extends CommonRecyclerAdapter<WelfarePhotoInfo> imple
                         .placeholder(R.mipmap.image_default)
                         .error(R.mipmap.image_default)
                         .into(imageView);
-            } else { // 列表不显示图片
-                Glide.with(mContext).load(R.mipmap.image_default).into(imageView);
+            } else { // 列表没有images就显示url
+                if (!TextUtils.isEmpty(resultsBean.getUrl())) {
+                    Glide.with(mContext)
+                            .load(resultsBean.getUrl() + "?imageView2/0/w/100")//节省流量
+                            .placeholder(R.mipmap.image_default)
+                            .error(R.mipmap.image_default)
+                            .into(imageView);
+                } else { // 列表不显示图片
+                    Glide.with(mContext).load(R.mipmap.image_default).into(imageView);
+                }
             }
             holder.setTextViewText(R.id.category_item_desc, resultsBean.getDesc() == null ? "unknown" : resultsBean.getDesc());
             holder.setTextViewText(R.id.category_item_author, resultsBean.getWho() == null ? "unknown" : resultsBean.getWho());

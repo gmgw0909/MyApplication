@@ -18,9 +18,11 @@ public class PhotoPresenter implements PhotoContract.IPhotoPresenter {
     private PhotoContract.IPhotoView iPhotoView;
     private int mPage = 1;
     private Subscription mSubscription;
+    private String tabTitleName;
 
-    public PhotoPresenter(PhotoContract.IPhotoView iPhotoView) {
+    public PhotoPresenter(PhotoContract.IPhotoView iPhotoView, String tabTitleName) {
         this.iPhotoView = iPhotoView;
+        this.tabTitleName = tabTitleName;
     }
 
     @Override
@@ -44,7 +46,7 @@ public class PhotoPresenter implements PhotoContract.IPhotoPresenter {
             mPage++;
         }
         mSubscription = AppNetRequest.getWelfareApi()
-                .getPhotoByTitle(iPhotoView.getCategoryName(), mPage)
+                .getPhotoByTitle(tabTitleName, mPage)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<WelfarePhotoList>() {
@@ -56,7 +58,7 @@ public class PhotoPresenter implements PhotoContract.IPhotoPresenter {
                     @Override
                     public void onError(Throwable e) {
                         iPhotoView.hideSwipeLoading();
-                        iPhotoView.getDataFail(iPhotoView.getCategoryName() + " 列表数据获取失败！");
+                        iPhotoView.getDataFail(tabTitleName + " 列表数据获取失败！");
                     }
 
                     @Override
@@ -75,5 +77,10 @@ public class PhotoPresenter implements PhotoContract.IPhotoPresenter {
                     }
                 });
 
+    }
+
+    @Override
+    public String getTabTitleName() {
+        return tabTitleName;
     }
 }

@@ -27,7 +27,7 @@ public class PhotosMainFragment extends BaseFragment {
     ViewPager mViewPager;
 
     ViewPagerAdapter mPagerAdapter;
-    String[] tabTitles = {"前端", "休息视频", "拓展资源"};
+    String[] tabTitles = {"Android", "福利", "拓展资源"};
 
     @Override
     protected int attachLayoutRes() {
