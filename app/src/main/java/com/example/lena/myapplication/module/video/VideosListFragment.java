@@ -1,4 +1,4 @@
-package com.example.lena.myapplication.module.photo;
+package com.example.lena.myapplication.module.video;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -17,7 +17,7 @@ import butterknife.Bind;
 /**
  * 共有的PhotosListFragment  通过传入不同的CategoryName  newInstance（创建不同实例）
  */
-public class PhotosListFragment extends BaseFragment implements PhotoContract.IPhotoView, SwipeRefreshLayout.OnRefreshListener, OnLoadMoreListener {
+public class VideosListFragment extends BaseFragment implements VideoContract.IVideoView, SwipeRefreshLayout.OnRefreshListener, OnLoadMoreListener {
 
     @Bind(R.id.recyclerView)
     RecyclerViewWithFooter mRecyclerView;
@@ -25,12 +25,12 @@ public class PhotosListFragment extends BaseFragment implements PhotoContract.IP
     SwipeRefreshLayout mSwipeRefreshLayout;
 
     private String tabTitleName;
-    private PhotoRecyclerAdapter mAdapter;
-    private PhotoContract.IPhotoPresenter iPhotoPresenter;
+    private VideoRecyclerAdapter mAdapter;
+    private VideoContract.IVideoPresenter iVideoPresenter;
     public static final String CATEGORY_NAME = "CATEGORY_NAME";
 
-    public static PhotosListFragment newInstance(String tabTitleName) {
-        PhotosListFragment photosListFragment = new PhotosListFragment();
+    public static VideosListFragment newInstance(String tabTitleName) {
+        VideosListFragment photosListFragment = new VideosListFragment();
         Bundle bundle = new Bundle();
         bundle.putString(CATEGORY_NAME, tabTitleName);
         photosListFragment.setArguments(bundle);
@@ -45,33 +45,33 @@ public class PhotosListFragment extends BaseFragment implements PhotoContract.IP
     @Override
     protected void initViews() {
         tabTitleName = getArguments().getString(CATEGORY_NAME);
-        iPhotoPresenter = new PhotoPresenter(this, tabTitleName);
+        iVideoPresenter = new VideoPresenter(this, tabTitleName);
         mSwipeRefreshLayout.setOnRefreshListener(this);
-        mAdapter = new PhotoRecyclerAdapter(getActivity());
+        mAdapter = new VideoRecyclerAdapter(getActivity());
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.addItemDecoration(new RecyclerViewDivider(getActivity(), LinearLayoutManager.HORIZONTAL));
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setOnLoadMoreListener(this);
         mRecyclerView.setEmpty();
-        iPhotoPresenter.subscribe();
+        iVideoPresenter.subscribe();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (iPhotoPresenter != null) {
-            iPhotoPresenter.unSubscribe();
+        if (iVideoPresenter != null) {
+            iVideoPresenter.unSubscribe();
         }
     }
 
     @Override
     public void onRefresh() {
-        iPhotoPresenter.getDataList(true);
+        iVideoPresenter.getDataList(true);
     }
 
     @Override
     public void onLoadMore() {
-        iPhotoPresenter.getDataList(false);
+        iVideoPresenter.getDataList(false);
     }
 
     @Override

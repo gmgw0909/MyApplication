@@ -1,4 +1,4 @@
-package com.example.lena.myapplication.module.photo;
+package com.example.lena.myapplication.module.video;
 
 
 import com.example.lena.myapplication.api.AppNetRequest;
@@ -13,15 +13,15 @@ import rx.schedulers.Schedulers;
  * IPhotoPresenter
  */
 
-public class PhotoPresenter implements PhotoContract.IPhotoPresenter {
+public class VideoPresenter implements VideoContract.IVideoPresenter {
 
-    private PhotoContract.IPhotoView iPhotoView;
+    private VideoContract.IVideoView iVideoView;
     private int mPage = 1;
     private Subscription mSubscription;
     private String tabTitleName;
 
-    public PhotoPresenter(PhotoContract.IPhotoView iPhotoView, String tabTitleName) {
-        this.iPhotoView = iPhotoView;
+    public VideoPresenter(VideoContract.IVideoView iVideoView, String tabTitleName) {
+        this.iVideoView = iVideoView;
         this.tabTitleName = tabTitleName;
     }
 
@@ -41,12 +41,12 @@ public class PhotoPresenter implements PhotoContract.IPhotoPresenter {
     public void getDataList(final boolean isRefresh) {
         if (isRefresh) {
             mPage = 1;
-            iPhotoView.showSwipeLoading();
+            iVideoView.showSwipeLoading();
         } else {
             mPage++;
         }
-        mSubscription = AppNetRequest.getWelfareApi()
-                .getPhotoByTitle(tabTitleName, mPage)
+        mSubscription = AppNetRequest.getImoocApi()
+                .getVideoByTitle("1494566072145","5306221","1cbd32264affe227507b9a32115974f7","20336ffe8c94f0b61a12af45c56fe351","0","223","1","83933a88b40831a111a74c550ec01432","0")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<WelfarePhotoList>() {
@@ -57,22 +57,22 @@ public class PhotoPresenter implements PhotoContract.IPhotoPresenter {
 
                     @Override
                     public void onError(Throwable e) {
-                        iPhotoView.hideSwipeLoading();
-                        iPhotoView.getDataFail(tabTitleName + " 列表数据获取失败！");
+                        iVideoView.hideSwipeLoading();
+                        iVideoView.getDataFail(tabTitleName + " 列表数据获取失败！");
                     }
 
                     @Override
                     public void onNext(WelfarePhotoList categoryResult) {
                         if (isRefresh) {
-                            iPhotoView.setDataList(categoryResult);
-                            iPhotoView.hideSwipeLoading();
+                            iVideoView.setDataList(categoryResult);
+                            iVideoView.hideSwipeLoading();
                         } else {
-                            iPhotoView.addDataList(categoryResult);
+                            iVideoView.addDataList(categoryResult);
                         }
                         if (categoryResult.getResults() != null && categoryResult.getResults().size() >= 10) {
-                            iPhotoView.setCanLoading();//告诉RecycleView还是加载更多数据
+                            iVideoView.setCanLoading();//告诉RecycleView还是加载更多数据
                         } else {
-                            iPhotoView.setNoMore();//告诉RecycleView加载完就没有数据了
+                            iVideoView.setNoMore();//告诉RecycleView加载完就没有数据了
                         }
                     }
                 });

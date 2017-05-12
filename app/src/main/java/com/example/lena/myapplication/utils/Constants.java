@@ -11,4 +11,5 @@ public class Constants {
     public static final String SETTING = "设置";
 
     public static final String BASE_URL = "http://gank.io/";
+    public static final String IMOOC_URL = "http://www.imooc.com";
 }

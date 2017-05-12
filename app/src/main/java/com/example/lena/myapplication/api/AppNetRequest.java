@@ -26,4 +26,19 @@ public class AppNetRequest extends BaseRequest {
         }
         return iWelfareApi;
     }
+
+    private static ImoocApi imoocApi;
+
+    public static ImoocApi getImoocApi() {
+        if (imoocApi == null) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .client(getClient())
+                    .baseUrl(Constants.IMOOC_URL)
+                    .addConverterFactory(gsonConverterFactory)
+                    .addCallAdapterFactory(rxJavaCallAdapterFactory)
+                    .build();
+            imoocApi = retrofit.create(ImoocApi.class);
+        }
+        return imoocApi;
+    }
 }

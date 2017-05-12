@@ -1,7 +1,5 @@
-package com.example.lena.myapplication.module.photo;
+package com.example.lena.myapplication.module.video;
 
-
-import android.app.Activity;
 
 import com.example.lena.myapplication.api.bean.WelfarePhotoList;
 import com.example.lena.myapplication.base.BasePresenter;
@@ -11,9 +9,9 @@ import com.example.lena.myapplication.base.BaseView;
  * VideoContract(IPhotoView  IPhotoPresenter)
  */
 
-public interface PhotoContract {
+public interface VideoContract {
 
-    interface IPhotoView extends BaseView {
+    interface IVideoView extends BaseView {
 
         void getDataFail(String failMessage);
 
@@ -30,24 +28,11 @@ public interface PhotoContract {
         void setNoMore(); //不可以继续加载
     }
 
-    interface IPhotoPresenter extends BasePresenter {
+    interface IVideoPresenter extends BasePresenter {
 
         void getDataList(boolean isRefresh);
 
         String getTabTitleName();
     }
 
-    interface IPhotoWebView extends BaseView {
-        void setUrl(String url);
-
-        void setTitle(String title);
-
-        Activity getActivityContext();
-    }
-
-    interface IPhotoWebPresenter extends BasePresenter {
-        String getTitle();
-
-        String getUrl();
-    }
 }
