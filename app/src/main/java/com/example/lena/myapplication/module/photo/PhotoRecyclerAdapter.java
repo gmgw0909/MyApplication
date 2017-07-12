@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.example.lena.myapplication.LanjieActivity;
 import com.example.lena.myapplication.R;
 import com.example.lena.myapplication.api.bean.WelfarePhotoInfo;
 import com.example.lena.myapplication.base.CommonRecyclerAdapter;
@@ -55,11 +54,11 @@ class PhotoRecyclerAdapter extends CommonRecyclerAdapter<WelfarePhotoInfo> imple
 
     @Override
     public void onClick(View v, int position, CommonRecyclerHolder holder) {
-//        Intent intent = new Intent(mContext, PhotoDetailsActivity.class);
-//        intent.putExtra("title", mData.get(position).getDesc());
-//        intent.putExtra("url", mData.get(position).getUrl());
-//        mContext.startActivity(intent);
-        Intent intent = new Intent(mContext, LanjieActivity.class);
+        Intent intent = new Intent(mContext, PhotoDetailsActivity.class);
+        intent.putExtra("title", mData.get(position).getDesc());
+        intent.putExtra("url", mData.get(position).getUrl());
         mContext.startActivity(intent);
+//        Intent intent = new Intent(mContext, LanjieActivity.class);
+//        mContext.startActivity(intent);
     }
 }
