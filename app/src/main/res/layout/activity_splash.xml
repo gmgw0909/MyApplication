@@ -8,17 +8,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/splash" />
+        android:src="@mipmap/wx_34" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
         android:layout_marginBottom="25dp"
-        android:layout_marginTop="188dp"
-        android:text="LeeBoo"
-        android:textColor="@color/white"
-        android:textSize="25sp"
+        android:text="LeeBoo Design"
+        android:textColor="#00cbcb"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <TextView
@@ -36,7 +36,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="45dp"
-        android:text="V1.0.0"
+        android:text="无敌小仙女"
         android:textColor="@color/white" />
 
 </RelativeLayout>

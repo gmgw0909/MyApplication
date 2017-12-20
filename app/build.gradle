@@ -52,6 +52,3 @@ dependencies {
     compile 'com.yarolegovich:discrete-scrollview:1.1.4'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
-repositories {
-    mavenCentral()
-}

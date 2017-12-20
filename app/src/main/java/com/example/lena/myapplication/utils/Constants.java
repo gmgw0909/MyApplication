@@ -7,7 +7,7 @@ package com.example.lena.myapplication.utils;
 
 public class Constants {
     public static final String PHOTOS = "图片";
-    public static final String VIDEOS = "视频";
+    public static final String WIFE = "无敌小仙女";
     public static final String SETTING = "设置";
 
     public static final String BASE_URL = "http://gank.io/";

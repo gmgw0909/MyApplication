@@ -6,8 +6,8 @@
     <application
         android:name=".base.BaseApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:icon="@mipmap/lp"
+        android:label="无敌小仙女"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -20,7 +20,7 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".module.photo.PhotoDetailsActivity" />
-        <activity android:name=".LanjieActivity" />
+        <activity android:name=".RainActivity" />
     </application>
 
 </manifest>

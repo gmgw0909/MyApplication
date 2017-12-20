@@ -18,7 +18,8 @@ import com.example.lena.myapplication.utils.TimeUtil;
  * PhotoRecyclerAdapter
  */
 
-class PhotoRecyclerAdapter extends CommonRecyclerAdapter<WelfarePhotoInfo> implements ListenerWithPosition.OnClickWithPositionListener<CommonRecyclerHolder> {
+class PhotoRecyclerAdapter extends CommonRecyclerAdapter<WelfarePhotoInfo>
+        implements ListenerWithPosition.OnClickWithPositionListener<CommonRecyclerHolder> {
 
     PhotoRecyclerAdapter(Context context) {
         super(context, null, R.layout.item_category);
@@ -58,7 +59,5 @@ class PhotoRecyclerAdapter extends CommonRecyclerAdapter<WelfarePhotoInfo> imple
         intent.putExtra("title", mData.get(position).getDesc());
         intent.putExtra("url", mData.get(position).getUrl());
         mContext.startActivity(intent);
-//        Intent intent = new Intent(mContext, LanjieActivity.class);
-//        mContext.startActivity(intent);
     }
 }

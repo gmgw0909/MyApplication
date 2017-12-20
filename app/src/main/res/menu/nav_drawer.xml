@@ -15,7 +15,7 @@
         <item
             android:id="@+id/nav_videos"
             android:icon="@drawable/ic_nav_video"
-            android:title="视频"/>
+            android:title="老婆"/>
     </group>
 
     <group android:checkableBehavior="none">
