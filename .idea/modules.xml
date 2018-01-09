@@ -3,8 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyApplication.iml" filepath="$PROJECT_DIR$/MyApplication.iml" />
+      <module fileurl="file://D:\Android_Workspace\MyApplication\MyApplication.iml" filepath="D:\Android_Workspace\MyApplication\MyApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/PaySDK/PaySDK.iml" filepath="$PROJECT_DIR$/PaySDK/PaySDK.iml" />
+      <module fileurl="file://D:\Android_Workspace\MyApplication\PaySDK\PaySDK.iml" filepath="D:\Android_Workspace\MyApplication\PaySDK\PaySDK.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://D:\Android_Workspace\MyApplication\app\app.iml" filepath="D:\Android_Workspace\MyApplication\app\app.iml" />
     </modules>
   </component>
 </project>
